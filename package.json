@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/infiniteoo/family-safe-link/issues"
   },
-  "homepage": "https://github.com/infiniteoo/family-safe-link#readme"
+  "homepage": "https://github.com/infiniteoo/family-safe-link#readme",
+  "dependencies": {
+    "is-porn": "^0.9.0",
+    "psl": "^1.8.0",
+    "valid-url": "^1.0.9"
+  }
 }
