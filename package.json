@@ -1,0 +1,19 @@
+{
+  "name": "family-safe-link",
+  "version": "1.0.0",
+  "description": "an npm package that determines if a given website URL is wholesome for family consumption",
+  "main": "familySafe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infiniteoo/family-safe-link.git"
+  },
+  "author": "troy dorman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/infiniteoo/family-safe-link/issues"
+  },
+  "homepage": "https://github.com/infiniteoo/family-safe-link#readme"
+}
