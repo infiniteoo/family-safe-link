@@ -1,8 +1,8 @@
 {
   "name": "family-safe-link",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "an npm package that determines if a given website URL is wholesome for family consumption",
-  "main": "familySafe.js",
+  "main": "familySafeLink.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,8 +1,8 @@
 const validUrl = require("valid-url");
 const isPorn = require("is-porn");
 const psl = require("psl");
-const extractHostname = require("../utils/extractHostname");
-const bannedKeywords = require("../utils/bannedKeywords");
+const extractHostname = require("./utils/extractHostname");
+const bannedKeywords = require("./utils/bannedKeywords");
 
 exports.familySafeLink = (longUrl) => {
   if (validUrl.isUri(longUrl)) {
@@ -22,8 +22,6 @@ exports.familySafeLink = (longUrl) => {
 
         bannedKeywords.forEach((keyword) => {
           if (psl.get(extractHostname(longUrl)).includes(keyword)) {
-            bannedHits++;
-
             console.log(
               `contains banned keyword: ${keyword}. this is an unworthy link for our site`
             );
@@ -35,7 +33,7 @@ exports.familySafeLink = (longUrl) => {
     });
   } else {
     console.log(`valid-url defines "${longUrl}" as an invalid long url`);
-    res.json("Invalid url");
+
     return;
   }
 };
