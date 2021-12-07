@@ -4,6 +4,38 @@ const psl = require("psl");
 const extractHostname = require("../utils/extractHostname");
 const bannedKeywords = require("../utils/bannedKeywords");
 
-exports.familySafeLink = (url) => {
-  console.log("this is a message from familySafe.js");
+exports.familySafeLink = (longUrl) => {
+  if (validUrl.isUri(longUrl)) {
+    // make sure url is not porn or on banned list
+    isPorn(psl.get(extractHostname(longUrl)), async (err, status) => {
+      if (err) {
+        console.log(err);
+      }
+
+      if (status) {
+        console.log("this is an unworthy link for our site");
+        return;
+      } else {
+        console.log("this is not a porn site");
+
+        // if returns false, then search extractedHostname for keywords
+
+        bannedKeywords.forEach((keyword) => {
+          if (psl.get(extractHostname(longUrl)).includes(keyword)) {
+            bannedHits++;
+
+            console.log(
+              `contains banned keyword: ${keyword}. this is an unworthy link for our site`
+            );
+
+            return;
+          }
+        });
+      }
+    });
+  } else {
+    console.log(`valid-url defines "${longUrl}" as an invalid long url`);
+    res.json("Invalid url");
+    return;
+  }
 };
