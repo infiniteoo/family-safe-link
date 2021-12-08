@@ -8,13 +8,11 @@ exports.familySafeLink = (longUrl) => {
   if (validUrl.isUri(longUrl)) {
     // make sure url is not porn or on banned list
     isPorn(psl.get(extractHostname(longUrl)), async (err, status) => {
-      if (err) {
-        console.log(err);
-      }
+      if (err) throw err;
 
       if (status) {
         console.log("this is an unworthy link for our site");
-        return;
+        return false;
       } else {
         console.log("this is not a porn site");
 
@@ -26,7 +24,9 @@ exports.familySafeLink = (longUrl) => {
               `contains banned keyword: ${keyword}. this is an unworthy link for our site`
             );
 
-            return;
+            return false;
+          } else {
+            return true;
           }
         });
       }
@@ -34,6 +34,6 @@ exports.familySafeLink = (longUrl) => {
   } else {
     console.log(`valid-url defines "${longUrl}" as an invalid long url`);
 
-    return;
+    return false;
   }
 };
