@@ -28,7 +28,7 @@ if (familySafeLink(websiteURL)) {
 
 ### TO DO LIST
 
-- Expand unsafe resource database to include domain names from designated hate groups from the SPLC database
+- Expand unsafe resource database to include domain names from designated hate groups
 - Search submitted link for banned keywords
 - Add more tests to the package
 - Add more keywords to banned keyword list
